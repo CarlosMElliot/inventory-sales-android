@@ -3,6 +3,7 @@
 Updated: 2026-09-27
 
 ## Completed
+- Restored file access and archived the original paper photograph unchanged with its checksum. Visually confirmed it is a detailed BCS invoice (DISNA is the customer), not the earlier blank pad. Updated [print specification](PRINT_PREVIEW_SPEC.md) for both orders/invoices. All supplied design assets are now archived; previous missing-photo entries are historical.
 - Owner reattached the paper-form photograph and confirmed it as the reference for BOTH order and invoice print previews. See [print-preview specification](PRINT_PREVIEW_SPEC.md). The photo is supplied in chat but not archived in GitHub: file download is blocked by an unavailable execution workspace. Prior 'missing' notes refer to the repository copy.
 - Archived and visually inspected all ten owner-supplied PNG exports: five main screens and five overlays/action previews. See [screen gallery](design/screens/README.md) and its checksum manifest. Static design backup now includes the original .fig and readable exports; the original paper-form photograph is still missing.
 - Archived the owner-supplied original `.fig`, its embedded preview PNG, original export metadata and SHA-256 manifest. See [design archive](design/README.md). Container integrity and byte preservation checked; Figma reimport not tested. Screen exports were subsequently supplied and archived; the original paper-form photograph remains missing.

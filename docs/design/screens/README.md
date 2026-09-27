@@ -1,5 +1,8 @@
 # Screen export gallery
 
+> Latest paper-reference update (2026-09-27): the photo is now archived and inspected. It is a BCS invoice with DISNA as customer, different from the earlier blank pad. See [current print specification](../../PRINT_PREVIEW_SPEC.md). Earlier missing-image statements and blank-pad-only layout descriptions are superseded for orders/invoices.
+
+
 Owner-supplied PNG exports archived on 2026-09-27. All ten images were visually inspected and their PNG integrity checked. Original bytes are preserved; repository filenames are normalized. Original names, dimensions, sizes and SHA-256 checksums are in [manifest.json](manifest.json).
 
 These are static prototype references, not evidence of implemented software. Sample names, dates, amounts and order numbers are demonstration data. Five main screens are 390 × 920 pixels; the five dialogs have their own dimensions. No resampling or generated replacement images were used.

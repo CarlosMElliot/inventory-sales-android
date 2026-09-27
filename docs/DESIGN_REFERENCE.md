@@ -1,5 +1,8 @@
 # Design reference and connection checkpoint
 
+> Latest paper-reference update (2026-09-27): the photo is now archived and inspected. It is a BCS invoice with DISNA as customer, different from the earlier blank pad. See [current print specification](PRINT_PREVIEW_SPEC.md). Earlier missing-image statements and blank-pad-only layout descriptions are superseded for orders/invoices.
+
+
 > Screen archive update (2026-09-27): all ten owner-supplied PNG exports are now preserved unchanged in the [screen gallery](design/screens/README.md), with dimensions and checksums. Earlier statements below that screen exports are missing are superseded. The original paper-form photograph remains outstanding.
 
 Updated: 2026-09-27, America/El_Salvador.
