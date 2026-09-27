@@ -13,23 +13,6 @@ Updated: 2026-09-27
 - Consolidated requirements, design references, print reference description and acceptance scenarios in PROJECT_HANDOFF.md.
 - Verified GitHub contents-write access with successful handoff commit b05db86c6933aea7cf4fbdefbd9f6ac60b081805 after connector installation/setup.
 
-## Not implemented
-- Android project, APK, database migrations, real authentication, admin panel, synchronization and production deployment.
-- Figma print templates remain unfinished; see handoff for prototype limitations.
-
-## Next session
-1. Read docs/PROJECT_HANDOFF.md, docs/SETUP_GUIDE.md docs/DESIGN_REFERENCE.md and docs/PRINT_PREVIEW_SPEC.md; inspect current repository.
-2. Recheck Supabase access in the new session. Project/plan/public-table/migration checks succeeded on 2026-09-27; Auth/storage configuration and GitHub integration behavior still need inspection.
-3. Choose/document native Android stack and check build environment.
-4. Implement milestone 1: app foundation and sample customer-to-order workflow matching existing Figma direction.
-5. Record exact changes, build/test results and next steps here. Preserve all remaining requirements.
-
-## Constraints
-- Start on free services; no paid upgrades or publishing automatically.
-- Do not commit secrets.
-- Separate verified implementation from mockups and proposed behavior.
-
-
 ## Milestone 1 implementation started (2026-09-27)
 
 Branch: `milestone-1-app-foundation`
@@ -42,6 +25,7 @@ Implemented:
 - Order quantities may exceed stock with a warning; creating an order does not deduct stock.
 - Saved-order preview distinguishes payment as not recorded and points future PDF/print/share work to the current BCS invoice specification.
 - Unit tests added for transaction-price total calculation and the order/no-stock-deduction rule.
+- Added `.github/workflows/android-ci.yml` to supply a reproducible build-capable environment with JDK 17 + Gradle 8.9 and run `testDebugUnitTest` followed by `assembleDebug`.
 
 Verification in this session:
 - GitHub branch contents were read back successfully after creation.
@@ -50,11 +34,24 @@ Verification in this session:
 - Supabase migrations: none.
 - Supabase security and performance advisor findings: none at this clean-slate checkpoint.
 - No Supabase schema changes were made in Milestone 1.
+- Android CI workflow committed at `1e7524877fb003dd4e5fcca73b2570a5f75f3d94`.
+- Immediately after the workflow commit, GitHub reported no workflow runs for `milestone-1-app-foundation`. Therefore a passing compile/test result is not yet claimed.
 
-Build/test limitation:
-- The GitHub connector does not provide a local Android SDK/Gradle execution environment and this repository does not yet contain a Gradle wrapper or CI workflow, so `assembleDebug` / `test` could not be executed from this session. Source and test files were read back, but a compiled build remains pending a build-capable environment.
+Build/test status:
+- The repository still has no committed Gradle wrapper binary/scripts. CI intentionally uses `gradle/actions/setup-gradle@v4` with Gradle 8.9 so the project can be compiled without checking wrapper artifacts into GitHub first.
+- Required CI commands are `gradle testDebugUnitTest --stacktrace` and `gradle assembleDebug --stacktrace`.
+- A successful GitHub Actions run remains required before Milestone 1 is considered tested and ready to merge.
 
-Next:
-1. Add/verify Gradle wrapper and run the Milestone 1 unit tests + debug build in a build-capable environment.
-2. Fix any compile issues found by the first real build before merging Milestone 1.
-3. Keep Supabase unchanged until the backend/account-isolation milestone is explicitly implemented with RLS.
+## Remaining project scope
+- Real Supabase authentication/database/RLS, synchronization, invoices, credits, payments, inventory mutations, reports, admin, subscriptions, final BCS-based PDF generation, Android printing, email/share attachments and production deployment remain later milestones.
+
+## Next
+1. Observe the first Android CI run; if GitHub Actions does not trigger automatically, enable/run Actions for the repository and rerun the branch workflow.
+2. Fix any compile/test errors reported by CI and repeat until both unit tests and `assembleDebug` pass.
+3. Only after the green build, complete Milestone 1 QA/documentation and merge it to `main`.
+4. Keep Supabase unchanged until the backend/account-isolation milestone is explicitly implemented with RLS.
+
+## Constraints
+- Start on free services; no paid upgrades or publishing automatically.
+- Do not commit secrets.
+- Separate verified implementation from mockups and proposed behavior.
