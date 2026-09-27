@@ -1,5 +1,8 @@
 # Original Figma design archive
 
+> Screen archive update (2026-09-27): all ten owner-supplied PNG exports are now preserved unchanged in the [screen gallery](screens/README.md), with dimensions and checksums. Earlier statements below that screen exports are missing are superseded. The original paper-form photograph remains outstanding.
+
+
 Archived 2026-09-27 from the file supplied by the project owner. This supersedes earlier notes saying no editable design export was backed up.
 
 ## Files

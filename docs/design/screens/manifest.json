@@ -1,0 +1,82 @@
+[
+  {
+    "original_filename": "01 Home.png",
+    "path": "docs/design/screens/01-home.png",
+    "width": 390,
+    "height": 920,
+    "bytes": 41156,
+    "sha256": "441c6102b4a4beb22500a745d92d6427c6a9f6c311ce48c06a79e3cffc0eef14"
+  },
+  {
+    "original_filename": "02 Choose customer.png",
+    "path": "docs/design/screens/02-choose-customer.png",
+    "width": 390,
+    "height": 920,
+    "bytes": 43390,
+    "sha256": "b357c75f8d26e65bb8c78750c1957e0d91a685dbe9ec0b0dfd0e703e12589673"
+  },
+  {
+    "original_filename": "03 Build order.png",
+    "path": "docs/design/screens/03-build-order.png",
+    "width": 390,
+    "height": 920,
+    "bytes": 46503,
+    "sha256": "473e92977352cc07b5f7a2a12d6d004c09c5a1069c5b4141053fcd438c399d39"
+  },
+  {
+    "original_filename": "04 Review order.png",
+    "path": "docs/design/screens/04-review-order.png",
+    "width": 390,
+    "height": 920,
+    "bytes": 53695,
+    "sha256": "2d0d292c78e9b75b11aac3b2a2c307168d056610fb95dd95b32e4fea0e09c946"
+  },
+  {
+    "original_filename": "05 Order saved \u00b7 Document preview.png",
+    "path": "docs/design/screens/05-order-saved-document-preview.png",
+    "width": 390,
+    "height": 920,
+    "bytes": 44972,
+    "sha256": "30c83072e3674ccfde28623d890dae21886924d6324be31116b8c88ebdbbf865"
+  },
+  {
+    "original_filename": "Edit price \u00b7 Overlay.png",
+    "path": "docs/design/screens/06-edit-price-overlay.png",
+    "width": 342,
+    "height": 316,
+    "bytes": 13648,
+    "sha256": "883fac49be8d06c0d1da8193c152b8e638649f29c2f8ccd7ed298bf6a2368018"
+  },
+  {
+    "original_filename": "Email order \u00b7 Action preview.png",
+    "path": "docs/design/screens/07-email-order-action-preview.png",
+    "width": 342,
+    "height": 392,
+    "bytes": 16631,
+    "sha256": "ff806d668c1cb9a6c3605b634093f9665eae548e3d9204c38718ae1761e83655"
+  },
+  {
+    "original_filename": "Order saved \u00b7 Demo confirmation.png",
+    "path": "docs/design/screens/08-order-saved-demo-confirmation.png",
+    "width": 342,
+    "height": 329,
+    "bytes": 14907,
+    "sha256": "02329011faa4c62d7848e2cbc5ce7fddd22d74e266015ebd20eb61d35587b417"
+  },
+  {
+    "original_filename": "Print order \u00b7 Action preview.png",
+    "path": "docs/design/screens/09-print-order-action-preview.png",
+    "width": 342,
+    "height": 392,
+    "bytes": 15313,
+    "sha256": "22bb27eb2dcce662cedcf066bdd5a23cd7ef48e461fa776a59a7c87d87d0bf19"
+  },
+  {
+    "original_filename": "Share PDF \u00b7 Action preview.png",
+    "path": "docs/design/screens/10-share-pdf-action-preview.png",
+    "width": 342,
+    "height": 392,
+    "bytes": 13969,
+    "sha256": "382d2ef4e80a0c536c22dd8a190f6d5d047660b9300d818275cfb203eb4e95a7"
+  }
+]

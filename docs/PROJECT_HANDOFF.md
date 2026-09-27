@@ -1,5 +1,8 @@
 # Inventory & Sales Android — project handoff
 
+> Screen archive update (2026-09-27): all ten owner-supplied PNG exports are now preserved unchanged in the [screen gallery](design/screens/README.md), with dimensions and checksums. Earlier statements below that screen exports are missing are superseded. The original paper-form photograph remains outstanding.
+
+
 > Latest backup update (2026-09-27): the owner-supplied original Figma export, embedded preview image and metadata are now archived. See [design archive](design/README.md) and [current progress](PROGRESS.md). Earlier statements below that no editable export is archived are historical and superseded. The original paper photograph and full-resolution screen exports remain missing.
 
 Updated: 2026-09-27. This document preserves the planning conversation and is the starting point for subsequent implementation sessions.

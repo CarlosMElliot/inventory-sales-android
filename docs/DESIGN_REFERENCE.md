@@ -1,4 +1,7 @@
 # Design reference and connection checkpoint
+
+> Screen archive update (2026-09-27): all ten owner-supplied PNG exports are now preserved unchanged in the [screen gallery](design/screens/README.md), with dimensions and checksums. Earlier statements below that screen exports are missing are superseded. The original paper-form photograph remains outstanding.
+
 Updated: 2026-09-27, America/El_Salvador.
 
 Read this checkpoint with PROJECT_HANDOFF.md and PROGRESS.md. Its connection findings supersede earlier statements that Supabase tools were unavailable. Design specifications below are consolidated from the saved handoff, not from a fresh Figma export.
