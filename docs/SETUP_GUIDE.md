@@ -1,5 +1,8 @@
 # Setup guide and research log
 
+> Latest backup update (2026-09-27): the owner-supplied original Figma export, embedded preview image and metadata are now archived. See [design archive](design/README.md) and [current progress](PROGRESS.md). Earlier statements below that no editable export is archived are historical and superseded. The original paper photograph and full-resolution screen exports remain missing.
+
+
 Recorded: 2026-09-27 (America/El_Salvador, UTC-06:00).
 Scope: setup completed during the planning and connector troubleshooting sessions, through the first documentation commits. This is a historical record, not a claim that the Android app or backend has been implemented.
 

@@ -1,0 +1,38 @@
+{
+  "original_filename": "Inventory & Sales \u2014 Mobile Prototype.fig",
+  "archive_entries": [
+    {
+      "path": "canvas.fig",
+      "bytes": 138428
+    },
+    {
+      "path": "thumbnail.png",
+      "bytes": 11983
+    },
+    {
+      "path": "meta.json",
+      "bytes": 352
+    },
+    {
+      "path": "images/",
+      "bytes": 0
+    }
+  ],
+  "files": [
+    {
+      "path": "docs/design/images/figma-embedded-preview.png",
+      "bytes": 11983,
+      "sha256": "97327b4c97b972fd0e6c3dd9ac9dddc193ed8f35132d0c5f96ec3a463519603b"
+    },
+    {
+      "path": "docs/design/source/export-metadata.json",
+      "bytes": 352,
+      "sha256": "ae45d018dd11753c47eafa8824643f1e92a83d50d86a1b95ef48caaba8f14733"
+    },
+    {
+      "path": "docs/design/source/inventory-sales-mobile-prototype.fig",
+      "bytes": 151467,
+      "sha256": "661adbf7e11814ff23ce54f8569d425527cf5ad878522112734e189696bf89c6"
+    }
+  ]
+}

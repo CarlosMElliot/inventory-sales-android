@@ -3,8 +3,9 @@
 Updated: 2026-09-27
 
 ## Completed
+- Archived the owner-supplied original `.fig`, its embedded preview PNG, original export metadata and SHA-256 manifest. See [design archive](design/README.md). Container integrity and byte preservation checked; Figma reimport not tested. Full-resolution screen exports and the original paper-form photograph remain missing.
 - Added [design reference and connection checkpoint](DESIGN_REFERENCE.md). Supabase read-only access now verified: inventory-sales-android, ACTIVE_HEALTHY, ca-central-1, organization Inventory-app on free plan; public tables and recorded migrations both empty. Earlier documentation saying project access is unverified is superseded by this checkpoint.
-- Retested Figma screenshot access; Starter-plan tool limit still blocks export. Original paper image and full Figma exports are not archived; see the backup manifest in DESIGN_REFERENCE.md.
+- Retested Figma screenshot access; Starter-plan tool limit still blocks export. The original `.fig` has since been archived; original paper image and full-resolution screen exports remain missing.
 - Added [setup guide and research log](SETUP_GUIDE.md), documenting setup steps, authorization versus installation, failed attempts, successful commits, Supabase verification gaps and study questions.
 - Consolidated requirements, design references, print reference description and acceptance scenarios in PROJECT_HANDOFF.md.
 - Verified GitHub contents-write access with successful handoff commit b05db86c6933aea7cf4fbdefbd9f6ac60b081805 after connector installation/setup.

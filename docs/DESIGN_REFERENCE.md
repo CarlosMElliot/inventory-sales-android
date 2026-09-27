@@ -3,6 +3,9 @@ Updated: 2026-09-27, America/El_Salvador.
 
 Read this checkpoint with PROJECT_HANDOFF.md and PROGRESS.md. Its connection findings supersede earlier statements that Supabase tools were unavailable. Design specifications below are consolidated from the saved handoff, not from a fresh Figma export.
 
+## Original design backup update
+The owner supplied the original `.fig` after this checkpoint. It is now preserved unchanged with its embedded preview, metadata and checksums. See [design archive and restore instructions](design/README.md). This updates the older backup statements below; screen PNG/PDF exports and the paper photograph are still missing.
+
 ## Connection verification
 
 | Service/check | Actual result |
@@ -85,15 +88,15 @@ The original paper reference is described here but its image is NOT archived in 
 | Written UI tokens and screen/node inventory | Yes, this document and handoff | Maintain with implementation |
 | Paper-form reference image | No | Owner reattaches original for archival |
 | Figma screen PNG/PDF exports | No | Owner exports available frames and uploads |
-| Editable Figma .fig copy | No | Owner saves a local copy if available and uploads for backup |
-| Full component/variable/prototype data | No | Preserve in editable design export; do not assume screenshots contain it |
+| Editable Figma .fig copy | Yes | Original preserved in design/source; reimport test pending |
+| Internal canvas data | Preserved in original .fig | Not decoded or independently validated; reimport test pending |
 
 Suggested repository destinations after files are supplied:
 - docs/design/reference/paper-form.png
 - docs/design/screens/ (numbered screen images or one PDF)
 - docs/design/source/ (editable export)
 
-These are proposed destinations, not existing files. Do not invent or recreate missing images and call them original exports. A PNG/PDF preserves appearance; it does not preserve editable components or prototype wiring.
+The source backup and embedded preview now exist as linked above; reference/paper-form.png and screens/ remain proposed destinations. Do not invent or recreate missing images and call them original exports. A PNG/PDF preserves appearance; it does not preserve editable components or prototype wiring.
 
 ## Handoff procedure
 1. New chat reads PROJECT_HANDOFF.md, PROGRESS.md, SETUP_GUIDE.md and this file.
@@ -102,4 +105,4 @@ These are proposed destinations, not existing files. Do not invent or recreate m
 4. If Figma remains limited, use uploaded exports and the written reference to start implementation.
 5. Record later checks and changes in PROGRESS.md.
 
-No paid upgrade is authorized or required simply to preserve the text reference. The original design-file export and paper image remain the outstanding backup items.
+No paid upgrade is authorized or required simply to preserve the text reference. The original design-file export is now archived. The paper photograph and full-resolution screen exports remain outstanding.
