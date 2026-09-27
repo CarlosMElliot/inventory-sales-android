@@ -28,3 +28,33 @@ Updated: 2026-09-27
 - Start on free services; no paid upgrades or publishing automatically.
 - Do not commit secrets.
 - Separate verified implementation from mockups and proposed behavior.
+
+
+## Milestone 1 implementation started (2026-09-27)
+
+Branch: `milestone-1-app-foundation`
+
+Implemented:
+- Native Android project foundation using Kotlin + Jetpack Compose + Material 3.
+- Preserved documented teal/white design tokens and simple four-destination bottom navigation.
+- Local sample order journey: Home → Choose customer → Build order → Review → Saved order preview.
+- Transaction-only unit-price overrides.
+- Order quantities may exceed stock with a warning; creating an order does not deduct stock.
+- Saved-order preview distinguishes payment as not recorded and points future PDF/print/share work to the current BCS invoice specification.
+- Unit tests added for transaction-price total calculation and the order/no-stock-deduction rule.
+
+Verification in this session:
+- GitHub branch contents were read back successfully after creation.
+- Supabase project `xrtoinoanxbpnuurhdtq` is ACTIVE_HEALTHY on the free plan in ca-central-1.
+- Supabase public tables: none.
+- Supabase migrations: none.
+- Supabase security and performance advisor findings: none at this clean-slate checkpoint.
+- No Supabase schema changes were made in Milestone 1.
+
+Build/test limitation:
+- The GitHub connector does not provide a local Android SDK/Gradle execution environment and this repository does not yet contain a Gradle wrapper or CI workflow, so `assembleDebug` / `test` could not be executed from this session. Source and test files were read back, but a compiled build remains pending a build-capable environment.
+
+Next:
+1. Add/verify Gradle wrapper and run the Milestone 1 unit tests + debug build in a build-capable environment.
+2. Fix any compile issues found by the first real build before merging Milestone 1.
+3. Keep Supabase unchanged until the backend/account-isolation milestone is explicitly implemented with RLS.
