@@ -192,7 +192,7 @@ Meaningful acceptance scenarios:
 - Phone/printer tests required before declaring printing supported.
 
 ## 16. Immediate next session
-1. Read this attached handoff, including its progress checklist; inspect current repository state. The repository copy is docs/PROJECT_HANDOFF.md. See docs/PROGRESS.md for current status.
+1. Read this repository handoff, including its progress checklist, and docs/SETUP_GUIDE.md; inspect current repository state. The repository copy is docs/PROJECT_HANDOFF.md. See docs/PROGRESS.md for current status.
 2. Verify GitHub access and inspect Supabase project xrtoinoanxbpnuurhdtq via working plugin, read-only first. Confirm plan and existing objects; do not overwrite unrelated data.
 3. Select and document Android stack/build environment using current official documentation and available build tools.
 4. Initialize a focused first milestone in a branch: app foundation and sample customer-to-order journey.
@@ -227,5 +227,16 @@ These do not block initial sample-data UI implementation.
 Treat reported external setup as user-reported until inspected. Figma evidence describes prior prototype work, not a fresh verification of the file. Do not infer working integrations or deployed software from resource URLs alone.
 
 ## 19. Copy into the new chat
-Read the attached Inventory-Sales-Android-Handoff.md as the project handoff. Preserve the full feature scope, simple Android UI, business isolation and free-tier constraint. Use the connected GitHub and Supabase tools. First inspect repository CarlosMElliot/inventory-sales-android and Supabase project xrtoinoanxbpnuurhdtq read-only. Earlier GitHub writes failed with 403; the owner completed connector setup for this handoff commit. Inspect current access and repository state. Confirm what exists, then begin milestone 1 using the existing Figma direction. Keep requirements and progress in the repository once writing works. Work in small complete milestones, verify builds/tests where available, and distinguish implemented features from prototypes and plans. Do not request or commit secrets, enable paid services, or publish the app automatically.
+Read docs/PROJECT_HANDOFF.md, docs/PROGRESS.md and docs/SETUP_GUIDE.md directly from repository CarlosMElliot/inventory-sales-android. Preserve the full feature scope, simple Android UI, business isolation and free-tier constraint. Use the connected GitHub and Supabase tools. First inspect repository CarlosMElliot/inventory-sales-android and Supabase project xrtoinoanxbpnuurhdtq read-only. Earlier GitHub writes failed with 403; the owner completed connector setup for this handoff commit. Inspect current access and repository state. Confirm what exists, then begin milestone 1 using the existing Figma direction. Keep requirements and progress in the repository once writing works. Work in small complete milestones, verify builds/tests where available, and distinguish implemented features from prototypes and plans. Do not request or commit secrets, enable paid services, or publish the app automatically.
 
+
+## 20. Chat migration readiness audit — 2026-09-27
+All three repository documents were fetched and reviewed before handoff to a new chat. Requirements, design identifiers, setup history, open decisions and implementation milestones are preserved. GitHub writes have succeeded. No Android source or APK has been produced in this work.
+
+Remaining portability limits:
+- The original paper-form reference image is described in text but not archived in this repository. Reattach it in the new chat for faithful visual matching.
+- Figma remains the external design source; links, node IDs and colors are documented, but a full design export is not backed up in GitHub. Current Figma access was not retested in this audit.
+- Supabase project access, plan and existing configuration still require a read-only check in a session with callable tools.
+- A new chat must read these documents and verify its available connections; do not assume conversation attachments or tool availability transfer automatically.
+
+These limits do not block moving the planning/implementation discussion. Begin by verifying access, then select the Android build stack and implement the sample order journey. Resolve tax, numbering, printer and offline-license decisions when their respective implementation stages require them.
