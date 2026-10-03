@@ -1,6 +1,6 @@
 # Inventory & Sales — Authoritative Web-App Specification
 
-Version 1.0 · 2026-10-03 · Owner: Carlos Mercado · Status: approved web-first direction; detailed rules below include proposals and unresolved decisions.
+Version 1.1 · 2026-10-03 · Owner: Carlos Mercado · Status: approved web-first direction; detailed rules below include proposals and unresolved decisions.
 
 ## 1. Authority, purpose and scope
 
@@ -52,6 +52,18 @@ Every business-owned row and private file must be protected by server-side owner
 Proposed subscription states: active, grace, expired/read-only and creator-suspended. Exact capabilities, grace duration, data retention, trial, prices and reactivation behavior are decisions. Do not delete business records for nonpayment. Recommended expired behavior permits viewing, PDF export and backup while blocking new business mutations. Suspension may have different access rules; define these deliberately.
 
 Subscription collection and customer payment recording are separate systems. Initial admin subscription bookkeeping may be manual; automated subscription billing requires a selected provider and additional integration. No card charging is implied by a recorded payment method.
+
+### Creator admin dashboard and login — confirmed scope
+
+The owner explicitly reaffirmed on 2026-10-03 that a creator-facing admin dashboard, user creation and login credentials are part of the application. This is an essential deliverable, not an optional future service or a requirement for the owner to operate Supabase manually.
+
+Provide separate admin and business navigation. Proposed routes are /admin/login, /admin and /login; route names can change with stack selection. The same authentication provider may serve both roles, but server-side authorization determines which area can be entered. The creator's admin account is distinct from a business's single user and does not consume that business seat.
+
+The creator can create a business and its login user, invite/activate the user, inspect status, request password recovery, disable/reactivate access, revoke sessions and manage the subscription. A second active business user must be rejected under the one-user package. Replacing a business login must preserve business ownership and transaction history.
+
+Use email and a user-chosen password through a secure setup flow. Never store a default/shared admin password in source, documentation, fixtures, screenshots or logs. The dashboard cannot reveal existing passwords. Creation success must distinguish an account record, invitation delivery and completed activation; none proves that the user has signed in.
+
+See [admin access and bootstrap guide](ADMIN_ACCESS.md). It describes how to establish the first creator account after authentication implementation, without pretending credentials exist today. The creator email is not yet supplied; do not infer it from GitHub or other connected accounts.
 
 ## 4. Navigation and responsive design
 
@@ -322,6 +334,50 @@ Explain current state, what remains accessible and how to contact the creator or
 
 Acceptance: manipulating browser state cannot reactivate a subscription. Offline revocation limits are documented; instant blocking of a disconnected device is never promised.
 
+### S30 — Creator admin login and recovery
+
+A clearly labeled administrator sign-in page collects email/password, supports password visibility, recovery and secure session handling. A successful authenticated creator reaches the admin dashboard; ordinary business users are denied admin access even if they know the route. Invalid/expired recovery and invitation links have actionable states. Return URLs must not permit redirects to arbitrary external destinations.
+
+First-admin access comes from the trusted bootstrap procedure, never an open “Become admin” form. Do not place a demo admin password on this screen. MFA and recovery policy are resolved through D20; MFA is recommended for privileged access.
+
+Acceptance: creator credentials open the admin dashboard, business credentials cannot invoke admin endpoints, and error responses do not expose account existence or sensitive provider details.
+
+### S31 — Creator admin dashboard
+
+Show counts of businesses and users by active, invited, disabled and relevant subscription states. Show subscriptions approaching expiration, recent account activity and provisioning/delivery failures. Empty state offers “Create business and user.” All counts must come from authorized data, with loading/error/retry states.
+
+Primary actions: Create business, Create user for an eligible business, View businesses, View users, Manage subscriptions and View audit log. Business rows show name, user email, access status, subscription state and dates. Counts and shortcuts open filtered lists.
+
+The dashboard is an operational control panel; it does not expose all customer transactions by default. Any later support access to business data is explicit and audited.
+
+Acceptance: a successful account creation updates the list and counts; failed creation is not shown as an activated business; filters retrieve the matching records.
+
+### S32 — Admin user directory and user detail
+
+Search business/name/email; filter invited, active and disabled users. Show linked business, email, role, activation state and available non-secret account dates. Detail actions include invite/resend setup, initiate password reset, disable/reactivate, revoke sessions and replace the business login under the seat constraint.
+
+Use reasons and confirmation for access changes. Subscription restriction and user-disabled status remain distinct. Do not display a password, reset token, secret key or session token. Ordinary business users cannot list the platform's users.
+
+Acceptance: disabling a user blocks authorized online business requests under the defined revocation policy; offline access follows the explicit expiry policy. A password reset request does not falsely imply the password has already changed.
+
+### S33 — Admin create business/user form
+
+Fields: business name, business-user display name, login email, initial subscription status/dates and optional contact information. Existing-business mode permits user creation only where the business has no conflicting active seat. Role is fixed to business user; ordinary provisioning cannot create another platform administrator.
+
+Review business, login email and access status before submission. Validate duplicate/previously invited emails and business seat limits. Use a stable operation ID and recover retries. Provider user creation and application membership creation require a recoverable workflow: a partial failure must not grant access to the wrong business or leave an untracked account.
+
+After creation show account status and the next setup action. Send/resend invitations deliberately to the reviewed email through the implemented delivery service; password is chosen through an expiring, single-use setup flow. An unsent invitation must remain visibly unsent.
+
+Acceptance: one intended business/user is created after retries; duplicate email/seat errors are actionable; activation provides access only to the intended business.
+
+### S34 — Admin audit log and account-change review
+
+Search/filter date, actor, business, action and outcome. Record creation, activation, access changes, session revocation, subscription changes and administrative role assignment. Entries contain IDs, timestamps, reason and non-secret before/after state where appropriate.
+
+Ordinary users cannot read or change platform audit entries. Administrative mutations cannot erase their own audit evidence. Protect the last active creator administrator from accidental removal; deliberate recovery/transfer follows the trusted procedure.
+
+Acceptance: each privileged change has traceable evidence, secrets are absent, and failed operations are distinguishable from completed operations.
+
 ## 7. Transaction states and accounting invariants
 
 Keep document state separate from payment state and sync state.
@@ -499,6 +555,7 @@ Reliability requirements: never lose a confirmed transaction; recover a pending-
 | D17 | Signature policy | Required vs optional by type, accessible alternative, document revision rules | Signatures |
 | D18 | Business timezone/currency | USD first; select per-business timezone/default and timezone-change rules | Onboarding/reports |
 | D19 | Payment purpose and terms | Clarify Charge vs On account; standalone deposits/rent need ledger rules | Payment completion |
+| D20 | Creator admin identity and recovery | Owner supplies login email; confirm MFA/recovery policy and trusted initial-admin bootstrap; no default credentials | Admin authentication before use |
 
 These decisions do not block reversible sample-data UI work. They do block declaring their dependent production features complete.
 
@@ -540,11 +597,19 @@ These decisions do not block reversible sample-data UI work. They do block decla
 | A32 | New business with no data | Useful empty states; no fabricated activity |
 | A33 | Prior comparison value zero | No invalid percentage/division error |
 | A34 | PDF/email job fails after posting | Transaction remains; retry document delivery only |
+| A35 | Creator logs in; business user tries same admin route/API | Creator sees dashboard; business user denied privileged access |
+| A36 | Create business and user; retry timed-out request | One correctly linked business/user; honest activation state |
+| A37 | Create duplicate email or second active business seat | Actionable rejection; no extra account or cross-business assignment |
+| A38 | Expired/used setup link, then deliberate resend | Old link cannot activate again; new flow follows policy; no password exposed |
+| A39 | Disable user or revoke online sessions | Subsequent authorized requests obey current access policy; offline limit stated |
+| A40 | Inspect admin user detail, logs and repository | No passwords, reset tokens or privileged keys exposed |
+| A41 | Invoke first-admin bootstrap without trusted authorization | No admin role granted; legitimate bootstrap is controlled and audited |
+| A42 | Admin changes subscription/access or removes last admin | Changes audited; accidental last-admin lockout prevented |
 
 ## 15. Implementation sequence and definition of done
 
 1. **Foundation:** inspect repository/backend; select web stack; establish responsive layout, shared components and a sample customer-to-order journey using existing Figma direction.
-2. **Secure data foundation:** authentication, business isolation, creator provisioning, customer/product/category CRUD, uploads, import and inventory ledger.
+2. **Secure data foundation:** authentication, business isolation, creator admin login/dashboard/user creation and trusted bootstrap, customer/product/category CRUD, uploads, import and inventory ledger.
 3. **Transaction engine:** posting, numbering, idempotency, orders, invoices, conversion, price overrides, payments, credits, signatures, revisions and reversals.
 4. **Documents and recovery:** reference-matching PDFs, browser printing, email/sharing and tested backup/restore.
 5. **History and reports:** full filters, linked customer history, daily financial and stock reconciliation/comparisons.
