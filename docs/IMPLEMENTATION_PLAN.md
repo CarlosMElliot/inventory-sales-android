@@ -2,11 +2,11 @@
 
 Updated 2026-10-03. Product authority: [WEB_APP_SPEC.md](WEB_APP_SPEC.md). Execution evidence: [PROGRESS.md](PROGRESS.md).
 
-All implementation milestones below are **not started** at this documentation checkpoint. Documentation readiness is complete. Mark work in progress/completed only with actual evidence. Milestones do not remove features from release scope.
+M0 stack/tool inspection is complete (hosting unresolved). M1 sample flow/admin UI implemented in part. M2 account API/schema/bootstrap are locally tested; live configuration and broader CRUD are pending. M3–M7 remain unstarted. See PROGRESS.md for evidence; milestone scope is not reduced.
 
-## First actionable task: M0
+## First actionable task: live integration setup
 
-Read AGENTS.md and progress; inspect existing repository files and available build tools. Inspect the Supabase project read-only if callable access exists. Record what is actually present, select a maintained web stack within the free-tier constraint and document D02's rationale. Then initialize a focused web branch and proceed to M1. Do not change a live database during read-only inspection.
+Read AGENTS.md, PROGRESS.md and BUILD_SETUP.md. The first branch contains runnable frontend/account API code and a locally tested migration. Configure the private target, review/apply the migration, establish Auth redirects/sender and bootstrap the intended creator identity; verify real account flows before marking M2 complete.
 
 If backend tools are unavailable, record the limit and continue the reversible sample-data UI foundation. Do not claim backend connection or wait for decisions unrelated to that first flow.
 

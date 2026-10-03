@@ -35,9 +35,9 @@ Creating an account record is not the same as sending an invitation, activating 
 
 ## Credentials: current status
 
-No working application credentials were created by this documentation update. The repository inspection found documentation/assets and a README synchronization script, with no app/auth implementation. The 2026-10-03 read-only service check found project xrtoinoanxbpnuurhdtq ACTIVE_HEALTHY and no public tables. Auth users/configuration were not inspected; an empty public schema does not prove Auth is empty.
+The first web branch now implements login/password setup, protected creator account operations and bootstrap tooling. See [BUILD_SETUP.md](BUILD_SETUP.md). Live credentials are not yet activated: the migration, private server environment, Auth sender/redirects and hosted origin still require setup and actual provider testing.
 
-The owner's desired creator-admin email has not been supplied. Do not infer it from GitHub identity or connected accounts. Do not manufacture a working username/password pair or use a committed sample password.
+The owner supplied the creator email privately. Do not publish the address or a default password. The initial read-only inspection found zero Auth users and an empty public schema; no user was created in this work.
 
 ## First creator account bootstrap — implementation procedure
 

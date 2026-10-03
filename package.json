@@ -1,0 +1,58 @@
+{
+  "name": "inventory-sales-web",
+  "version": "1.0.0",
+  "description": "A responsive web application for U.S. small businesses: customers, products, inventory, orders, invoices, credits, payment records, documents and daily comparison reports.",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "dev:api": "tsx watch server/index.ts",
+    "build": "tsc --noEmit && vite build",
+    "start": "tsx server/index.ts",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "bootstrap:admin": "tsx scripts/bootstrap-admin.ts",
+    "docs:check": "python3 scripts/sync_readme.py --check"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CarlosMElliot/inventory-sales-android.git"
+  },
+  "keywords": [],
+  "author": "",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/CarlosMElliot/inventory-sales-android/issues"
+  },
+  "homepage": "https://github.com/CarlosMElliot/inventory-sales-android#readme",
+  "dependencies": {
+    "@fontsource/roboto": "5.3.0",
+    "@supabase/supabase-js": "2.117.2",
+    "express": "5.2.1",
+    "express-rate-limit": "8.7.0",
+    "helmet": "8.3.0",
+    "lucide-react": "1.51.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "zod": "4.6.5"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "0.5.8",
+    "@playwright/test": "1.56.1",
+    "@types/express": "5.0.6",
+    "@types/node": "26.6.4",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@types/supertest": "7.2.1",
+    "@vitejs/plugin-react": "6.1.1",
+    "prettier": "3.9.9",
+    "supabase": "2.119.0",
+    "supertest": "7.3.1",
+    "tsx": "4.23.15",
+    "typescript": "7.0.2",
+    "vite": "8.3.2",
+    "vitest": "5.0.3"
+  },
+  "private": true
+}

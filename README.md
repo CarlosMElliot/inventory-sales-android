@@ -7,7 +7,7 @@ A responsive web application for U.S. small businesses: customers, products, inv
 ## First visit? Start with these three steps
 
 1. **Understand the project:** read the overview below and the [complete specification](#complete-product-specification) on this page.
-2. **See what actually exists:** read [Current progress](docs/PROGRESS.md). The inspected repository currently contains documentation and design assets, not application source. There is no verified running app to install yet.
+2. **See what actually exists:** read [Current progress](docs/PROGRESS.md). The first runnable web implementation is available on this branch. Real login still requires private configuration; start with the labeled preview routes.
 3. **Continue the work:** follow [Implementation plan](docs/IMPLEMENTATION_PLAN.md), starting at the first unfinished milestone. An AI assistant should first read [AGENTS.md](AGENTS.md).
 
 You do not need the original chat to understand the project. Links and written requirements are preserved here. Access to GitHub, Supabase or Figma must still be verified in each new working environment.
@@ -44,17 +44,28 @@ Payment recording is bookkeeping; it does not automatically charge a card. Credi
 
 **You receive your own administrator dashboard.** You can create businesses and their login users, manage subscriptions, disable/reactivate access, initiate password recovery and inspect audit history. This is required product functionality, with a separate creator login and navigation. It is implemented in M2, not postponed until release.
 
-Read [Admin access and account setup](docs/ADMIN_ACCESS.md). Your creator account is separate from each business's one-user seat. No working credentials exist from this documentation update: app authentication must be implemented and you must identify the intended creator email. Password setup is private; the public repository never contains a shared/default password.
+Read [Admin access and account setup](docs/ADMIN_ACCESS.md). Your creator account is separate from each business's one-user seat. Account code is implemented but live credentials are not activated: configure the server, migration and email/redirect settings, using the creator email supplied privately. Password setup is private; the public repository never contains a shared/default password.
 
 ## Current status and next action
 
-**Completed:** detailed specification, original design/print archives and repository onboarding documentation.
+**Implemented on this branch:** responsive login/password setup, creator admin preview and protected account API, local schema tests and a sample order journey. [See screenshots](docs/implementation/README.md).
 
-**Not implemented in this repository at this inspection:** application source, working login, transaction engine, PDF renderer, deployment and synchronization.
+**Not yet activated:** live account creation/sign-in, sender/redirect configuration and hosting. The production transaction engine, PDF renderer, reports and offline synchronization remain future milestones.
 
-**Next:** milestone M0—inspect current connections and environment, select/document the web stack, then M1—build the responsive sample customer-to-order flow. Do not ask the owner to recreate the project history. Ask only for a missing decision that blocks the current step, after completing useful unblocked work.
+**Next:** follow [BUILD_SETUP.md](docs/BUILD_SETUP.md) to configure the chosen environment and verify the real authentication/provider path, then complete M1/M2. Do not ask the owner to recreate archived context.
 
-No install or run command is available yet because no stack has been chosen. When M1 creates the app, replace this paragraph with tested prerequisites, setup, environment-variable names, run/build/test commands and a sample-data walkthrough. Never invent working commands.
+### Run the preview
+
+Requires Node.js 24 and npm. From repository root:
+
+```sh
+npm ci
+npm run dev
+```
+
+Open http://localhost:5173/demo/admin or http://localhost:5173/demo/order. These routes use synthetic data, send no emails and do not access real business records. The order draft persists locally; sample admin changes are in-memory.
+
+For the real account server, private environment variables and first-admin setup, read [BUILD_SETUP.md](docs/BUILD_SETUP.md). No default password is provided. Validate with `npm run build`, `npm test`, `npm run test:e2e` (after installing its browser) and `npm run docs:check`.
 
 ## Repository map
 
@@ -75,7 +86,7 @@ No install or run command is available yet because no stack has been chosen. Whe
 | [docs/history/](docs/history/README.md) | Superseded Android planning and historical setup evidence |
 | [scripts/sync_readme.py](scripts/sync_readme.py) | Standard-library script to refresh/check the specification copy below |
 
-Application source, tests and migrations will be organized after stack selection. Do not create empty folders that imply implemented components or move the original design assets without updating their references.
+Application source: `src/`; trusted API: `server/`; migrations: `supabase/migrations/`; tests: `tests/`; bootstrap: `scripts/bootstrap-admin.ts`. Original design assets retain their existing paths.
 
 ## Design and service references
 
@@ -106,7 +117,7 @@ These are documentation commands, not application setup commands. The script nee
 ## Complete product specification
 
 <!-- BEGIN WEB_APP_SPEC -->
-Version 1.1 · 2026-10-03 · Owner: Carlos Mercado · Status: approved web-first direction; detailed rules below include proposals and unresolved decisions.
+Version 1.2 · 2026-10-03 · Owner: Carlos Mercado · Status: approved web-first direction; detailed rules below include proposals and unresolved decisions.
 
 ## 1. Authority, purpose and scope
 
@@ -125,7 +136,7 @@ Do not trade away required features simply to make navigation look simple. Use p
 
 Confirmed scope includes offline operation and synchronization from the previous plan. The web pivot does not itself cancel that requirement. An online foundation can be built first; full-release acceptance still requires offline support or an explicit owner-approved deferral.
 
-Supabase free tier is the starting budget constraint. No paid upgrade is authorized. Framework, hosting provider, email provider and billing provider are not selected here. Commercial price suggestions in old notes are not approved prices.
+Supabase free tier is the starting budget constraint. No paid upgrade is authorized. The first implementation selects React/TypeScript/Vite with an Express account API and Supabase; hosting, email delivery configuration and billing provider remain unresolved. Commercial price suggestions in old notes are not approved prices.
 
 ## 2. Project references and evidence
 
@@ -169,7 +180,7 @@ The creator can create a business and its login user, invite/activate the user, 
 
 Use email and a user-chosen password through a secure setup flow. Never store a default/shared admin password in source, documentation, fixtures, screenshots or logs. The dashboard cannot reveal existing passwords. Creation success must distinguish an account record, invitation delivery and completed activation; none proves that the user has signed in.
 
-See [admin access and bootstrap guide](docs/ADMIN_ACCESS.md). It describes how to establish the first creator account after authentication implementation, without pretending credentials exist today. The creator email is not yet supplied; do not infer it from GitHub or other connected accounts.
+See [admin access and bootstrap guide](docs/ADMIN_ACCESS.md). It describes how to establish the first creator account after authentication implementation, without pretending credentials exist today. The creator email was supplied privately in the owner conversation. Do not publish it or infer identity from connected accounts; supply it through private bootstrap configuration.
 
 ## 4. Navigation and responsive design
 
@@ -620,7 +631,7 @@ This is a logical model, not an implemented schema.
 
 Every business-owned record has stable identity and ownership. Foreign-key relationships must prevent cross-business linking. Important fields include created/updated timestamps, effective business date, revision, actor and source-operation identifier.
 
-Proposed boundaries: responsive web frontend; Supabase authentication, database and private file storage; trusted server operations for posting, numbering, privileged admin work and external service integration. Client framework and hosting remain choices.
+Proposed boundaries: responsive web frontend; Supabase authentication, database and private file storage; trusted server operations for posting, numbering, privileged admin work and external service integration. Client stack is now React/TypeScript/Vite with an Express server; hosting remains a choice.
 
 Row-level security is required for exposed business tables, with policies enforcing business membership on reads and writes. Private files must have equivalent authorization. Do not use editable user metadata as authority. Privileged keys stay server-side; customer-controlled backup imports cannot grant admin rights or alter subscription entitlements.
 
@@ -643,7 +654,7 @@ Reliability requirements: never lose a confirmed transaction; recover a pending-
 | ID | Decision | Proposed direction / unresolved point | Gate |
 | --- | --- | --- | --- |
 | D01 | Product name | WorksPlace is team name; final public name needed | Branding/release |
-| D02 | Web stack and hosting | Select maintained responsive stack after environment inspection; free services first | Foundation |
+| D02 | Web stack and hosting | Stack selected 2026-10-03: React/TypeScript/Vite + Express + Supabase; small responsive client, trusted account server, pinned lockfile. Hosting remains pending. See BUILD_SETUP.md. | Foundation / hosting before release |
 | D03 | Offline release sequencing | Remains in scope; approve feature matrix and any explicit deferral | Release planning |
 | D04 | Offline license/device policy | Define grace duration, allowed devices and concurrency; no instant offline revocation claim | Offline/auth |
 | D05 | Subscription commercial rules | Price/trial/grace/renewal/suspension/retention; prior price suggestions not approved | Billing/release |
@@ -661,7 +672,7 @@ Reliability requirements: never lose a confirmed transaction; recover a pending-
 | D17 | Signature policy | Required vs optional by type, accessible alternative, document revision rules | Signatures |
 | D18 | Business timezone/currency | USD first; select per-business timezone/default and timezone-change rules | Onboarding/reports |
 | D19 | Payment purpose and terms | Clarify Charge vs On account; standalone deposits/rent need ledger rules | Payment completion |
-| D20 | Creator admin identity and recovery | Owner supplies login email; confirm MFA/recovery policy and trusted initial-admin bootstrap; no default credentials | Admin authentication before use |
+| D20 | Creator admin identity and recovery | Owner supplied login email privately; confirm MFA/recovery policy and trusted initial-admin bootstrap; no default credentials | Admin authentication before use |
 
 These decisions do not block reversible sample-data UI work. They do block declaring their dependent production features complete.
 
