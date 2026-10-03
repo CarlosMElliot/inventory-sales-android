@@ -6,6 +6,12 @@ Updated 2026-10-03.
 
 Responsive WEB application for phones, tablets and desktops. Native Android deferred. [WEB_APP_SPEC.md](WEB_APP_SPEC.md) is the authoritative specification; historical Android instructions are superseded.
 
+## Repository onboarding checkpoint — 2026-10-03
+
+The full repository tree was inspected: documentation and design assets were present; application source was not present. Added a root AI working guide, documentation/history indexes, an ordered M0–M7 implementation plan and a full specification mirror in README with a synchronization script. Cleaned obsolete missing-asset claims in the design archive index. Existing asset paths are retained.
+
+**First next task: M0 in IMPLEMENTATION_PLAN.md.** Inspect available development tools and current service configuration, document/select the web stack, then proceed to the responsive sample order journey. No install/run commands are claimed before that implementation exists.
+
 ## Completed documentation and design work
 
 - Consolidated full scope into WEB_APP_SPEC.md: 29 screen workflows, transaction/inventory rules, reports, security and logical data model, offline/backup requirements, 19 open decisions and 34 acceptance scenarios.
@@ -38,3 +44,7 @@ Read back all nine created/updated specification, entry and historical documents
 ## Constraints
 
 One business subscription / one user / full package. Cloud-backed with offline requirement retained. No secrets in this public repository. No paid upgrades or production publishing without owner authorization. Distinguish confirmed features, proposals, decisions and implemented behavior.
+
+## Onboarding verification
+
+Ran `python3 scripts/sync_readme.py --check` against a local copy of the actual README/specification/script: passed. Checked relative Markdown file targets in all updated onboarding documents against the inspected repository tree plus new files: no missing targets. This is documentation verification, not an app build or service test.
