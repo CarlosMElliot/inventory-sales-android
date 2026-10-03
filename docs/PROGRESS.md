@@ -14,7 +14,7 @@ The full repository tree was inspected: documentation and design assets were pre
 
 ## Completed documentation and design work
 
-- Consolidated full scope into WEB_APP_SPEC.md: 29 screen workflows, transaction/inventory rules, reports, security and logical data model, offline/backup requirements, 19 open decisions and 34 acceptance scenarios.
+- Consolidated full scope into WEB_APP_SPEC.md: 34 screen workflows, transaction/inventory rules, reports, security and logical data model, offline/backup requirements, 20 open decisions and 42 acceptance scenarios.
 - Added root README and replaced the active Android handoff with a web-first continuation guide. Preserved the former handoff/setup research under docs/history.
 - Updated design reference and print guidance for responsive browser use.
 - Previously archived original Figma .fig, metadata/checksums, ten screen PNGs and the original paper photograph. See [design archive](design/README.md), [screen gallery](design/screens/README.md) and [paper reference](design/reference/README.md).
@@ -48,3 +48,11 @@ One business subscription / one user / full package. Cloud-backed with offline r
 ## Onboarding verification
 
 Ran `python3 scripts/sync_readme.py --check` against a local copy of the actual README/specification/script: passed. Checked relative Markdown file targets in all updated onboarding documents against the inspected repository tree plus new files: no missing targets. This is documentation verification, not an app build or service test.
+
+## Creator admin clarification and current read-only check — 2026-10-03
+
+Owner reaffirmed creator dashboard, business-user creation and login credentials as required scope. Added S30–S34, D20 and A35–A42, plus ADMIN_ACCESS.md. M2 now explicitly delivers creator login/dashboard/user creation and trusted bootstrap. Documentation totals: 34 screens, 20 decisions, 42 acceptance scenarios.
+
+Current repository inspection found documentation, design assets and the README synchronization script, with no app/auth source. Supabase list_projects returned xrtoinoanxbpnuurhdtq ACTIVE_HEALTHY; list_tables for public returned an empty list. No Auth user listing/configuration inspection, schema mutation, account creation or invitation occurred. Current plan, auth settings and real login remain unverified.
+
+**Credential blocker:** creator login email not supplied; application authentication/admin authorization is not implemented. No working credentials were generated or published. Implement M0/M1 then M2 and follow ADMIN_ACCESS.md to create the intended creator identity securely.
