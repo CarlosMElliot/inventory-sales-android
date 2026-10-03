@@ -6,7 +6,7 @@ Updated 2026-10-03.
 
 Start at [the root README](../README.md). Assistants and developers read [AGENTS.md](../AGENTS.md), then [PROGRESS.md](PROGRESS.md), [WEB_APP_SPEC.md](WEB_APP_SPEC.md) and [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md). It replaces the Android-only handoff. The owner has selected a responsive web application for now; native Android is deferred. The repository name does not override this direction.
 
-The complete specification includes original Figma links, archived image references, 29 screen workflows, inventory/financial invariants, logical architecture, offline and subscription requirements, a decision register and 34 acceptance scenarios.
+The complete specification includes original Figma links, archived image references, 34 screen workflows, inventory/financial invariants, logical architecture, offline and subscription requirements, a decision register and 42 acceptance scenarios.
 
 Then read [PROGRESS.md](PROGRESS.md), [DESIGN_REFERENCE.md](DESIGN_REFERENCE.md) and [PRINT_PREVIEW_SPEC.md](PRINT_PREVIEW_SPEC.md).
 
@@ -32,3 +32,7 @@ The previous handoff is preserved in [history/ANDROID_PROJECT_HANDOFF_2026-09-27
 ## Copy into a new chat
 
 Continue the web-first project at https://github.com/CarlosMElliot/inventory-sales-android. Read AGENTS.md and docs/PROGRESS.md, then docs/WEB_APP_SPEC.md and docs/IMPLEMENTATION_PLAN.md. Inspect available source and connections, follow the first unfinished milestone, verify actual behavior and record the exact next action. Use the archived Figma/screens/print reference. Do not assume prior chat attachments or current service access transfer automatically.
+
+## Creator dashboard and login
+
+The owner reaffirmed that creator admin login, an admin dashboard and business-user creation are mandatory. Read [ADMIN_ACCESS.md](ADMIN_ACCESS.md), screens S28–S34 and acceptance A35–A42. Implement these in M2. Do not claim existing credentials: auth/app code is not present and the intended creator login email is still needed. Account setup uses a trusted bootstrap and private password-setup flow; never place credentials in this repository.
