@@ -1,10 +1,8 @@
 # Original Figma design archive
 
-> Latest paper-reference update (2026-09-27): the photo is now archived and inspected. It is a BCS invoice with DISNA as customer, different from the earlier blank pad. See [current print specification](../PRINT_PREVIEW_SPEC.md). Earlier missing-image statements and blank-pad-only layout descriptions are superseded for orders/invoices.
+Current project direction: [responsive web application](../WEB_APP_SPEC.md). [Back to documentation index](../README.md).
 
-
-> Screen archive update (2026-09-27): all ten owner-supplied PNG exports are now preserved unchanged in the [screen gallery](screens/README.md), with dimensions and checksums. Earlier statements below that screen exports are missing are superseded. The original paper-form photograph remains outstanding.
-
+Original .fig, ten screen PNGs and the paper reference are archived. This index preserves source provenance; [DESIGN_REFERENCE.md](../DESIGN_REFERENCE.md) explains current use.
 
 Archived 2026-09-27 from the file supplied by the project owner. This supersedes earlier notes saying no editable design export was backed up.
 
@@ -42,13 +40,14 @@ The preview was visually inspected. The file has not been reimported into Figma 
 2. Compare its size and SHA-256 with manifest.json. On Windows PowerShell, use `Get-FileHash .\inventory-sales-mobile-prototype.fig -Algorithm SHA256`.
 3. Import the local .fig into Figma using its file-import interface. Use a separate copy so the existing design is preserved.
 4. Check pages, main frames, components, fonts and prototype links in the imported file. Record the actual result and date in PROGRESS.md.
-5. Export the five main frames as PNG/PDF for readable, tool-independent visual references when available. Record filenames and node IDs.
+5. Compare the imported file with the already archived [screen exports](screens/README.md). If new exports are produced, preserve their provenance and node IDs.
 
 Preserving a Figma file does not preserve account permissions, guarantee remote component availability, or make its mock buttons into functional software.
 
-## Remaining missing assets
+## Additional archived visual references
 
-- Full-resolution individual screen images/PDF: not supplied or rendered in this archive. Figma MCP export was previously blocked by the Starter-plan limit.
-- Original paper-form photograph: not included in this .fig archive and not yet archived in the repository. Its layout is described in PROJECT_HANDOFF.md and DESIGN_REFERENCE.md; the owner must reattach the image for an exact visual backup.
+- [Ten readable screen exports and previews](screens/README.md), with [checksums](screens/manifest.json).
+- [Original paper photograph](reference/paper-form.png), with [provenance](reference/README.md) and [checksum](reference/manifest.json).
+- [Order/invoice print requirements](../PRINT_PREVIEW_SPEC.md). The detailed BCS invoice photograph guides both outputs; the simplified Figma preview is not final.
 
-All extractable images from this supplied archive are included. No synthetic screenshots were substituted for missing exports.
+These separately supplied assets are outside the original .fig container. No synthetic screenshots are represented as original exports. Live Figma access and successful reimport still require their own verification.
