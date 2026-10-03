@@ -1,39 +1,31 @@
-# Design reference and connection checkpoint
+# Web design reference
 
-> Latest paper-reference update (2026-09-27): the photo is now archived and inspected. It is a BCS invoice with DISNA as customer, different from the earlier blank pad. See [current print specification](PRINT_PREVIEW_SPEC.md). Earlier missing-image statements and blank-pad-only layout descriptions are superseded for orders/invoices.
+Updated 2026-10-03. [WEB_APP_SPEC.md](WEB_APP_SPEC.md) is authoritative. This file indexes visual sources; it does not introduce separate product rules.
 
+## Original Figma file
 
-> Screen archive update (2026-09-27): all ten owner-supplied PNG exports are now preserved unchanged in the [screen gallery](design/screens/README.md), with dimensions and checksums. Earlier statements below that screen exports are missing are superseded. The original paper-form photograph remains outstanding.
-
-Updated: 2026-09-27, America/El_Salvador.
-
-Read this checkpoint with PROJECT_HANDOFF.md and PROGRESS.md. Its connection findings supersede earlier statements that Supabase tools were unavailable. Design specifications below are consolidated from the saved handoff, not from a fresh Figma export.
-
-## Original design backup update
-The owner supplied the original `.fig` after this checkpoint. It is now preserved unchanged with its embedded preview, metadata and checksums. See [design archive and restore instructions](design/README.md). This updates the older backup statements below; screen PNG/PDF exports and the paper photograph are still missing.
-
-## Connection verification
-
-| Service/check | Actual result |
-| --- | --- |
-| GitHub | Repository documentation read/write verified |
-| Supabase project lookup | Successful for xrtoinoanxbpnuurhdtq |
-| Project name | inventory-sales-android |
-| Project status | ACTIVE_HEALTHY |
-| Region | ca-central-1 |
-| Organization | Inventory-app |
-| Organization plan | free / tier_free |
-| Database version | PostgreSQL 17; reported version 17.6.1.166 |
-| Tables in public schema | Empty list |
-| Recorded database migrations | Empty list |
-| Figma home-frame screenshot request | Rejected: Starter-plan MCP tool call limit reached |
-
-The Supabase inspection was read-only. No database, plan, account, or deployment changes were made. Empty public tables do not mean every schema is empty. Auth configuration, storage configuration, GitHub integration behavior and client connectivity were not verified. Connection availability in a future chat must be checked there.
-
-## Canonical design source
 https://www.figma.com/design/0LSTfSMM2jz9CMfxQnSvwR
 
-Workspace recorded as WorksPlace, Starter plan. This document is a text reference, NOT a complete editable Figma backup or a pixel-exact specification.
+Recorded team: WorksPlace, Starter. WorksPlace is not a confirmed public product name.
+
+| Screen | Direct link |
+| --- | --- |
+| Home | https://www.figma.com/design/0LSTfSMM2jz9CMfxQnSvwR?node-id=3-327 |
+| Choose customer | https://www.figma.com/design/0LSTfSMM2jz9CMfxQnSvwR?node-id=3-328 |
+| Build order | https://www.figma.com/design/0LSTfSMM2jz9CMfxQnSvwR?node-id=3-329 |
+| Review order | https://www.figma.com/design/0LSTfSMM2jz9CMfxQnSvwR?node-id=6-38 |
+| Saved order / preview | https://www.figma.com/design/0LSTfSMM2jz9CMfxQnSvwR?node-id=9-42 |
+
+## Archived images and editable source
+
+- [Editable source and archive instructions](design/README.md)
+- [Original .fig](design/source/inventory-sales-mobile-prototype.fig)
+- [Ten exported screens and previews](design/screens/README.md)
+- [Screen manifest](design/screens/manifest.json)
+- [Latest original paper photograph](design/reference/paper-form.png)
+- [Paper archive notes](design/reference/README.md)
+
+All these asset types were archived in the September checkpoint. Older notes saying exports or paper photograph are missing are historical. Successful .fig reimport and current live Figma tool access are not asserted.
 
 ## Visual tokens
 
@@ -46,69 +38,22 @@ Workspace recorded as WorksPlace, Starter plan. This document is a text referenc
 | Surface | #FFFFFF |
 | Soft primary | #E4F2EE |
 | Border | #DCE6E2 |
-| Warning text | #875600 |
-| Warning surface | #FFF2D8 |
+| Warning text / surface | #875600 / #FFF2D8 |
 | Font | Roboto Regular/Bold |
-| Card rounding | Approximately 16dp |
-| Button rounding | Approximately 14dp |
-| Reference frame | 390 x 920; actual app must adapt to screen size and system insets |
+| Approximate rounding | Cards 16; buttons 14, adapted to CSS |
 
-Android only; simple guided forms, clear labels, readable contrast and contextual secondary actions. Home, Customers, Products and More are the main navigation destinations. Do not add chat bubbles merely because the flow was described as conversational.
+## Responsive interpretation
 
-## Existing screen inventory
+The five main frames are 390 × 920 mobile references. Reuse their hierarchy, typography, colors and guided flow, adapting to phone, tablet and desktop browsers. Do not hard-code the frame height or constrain the deliverable to Android.
 
-| Screen | Figma node | Role |
-| --- | --- | --- |
-| Home | 3:327 | Order, Invoice, Credit, Payment actions; daily activity |
-| Choose customer | 3:328 | Customer selection for transaction |
-| Build order | 3:329 | Items, quantities, editable prices and stock warning |
-| Review order | 6:38 | Customer, line items and totals before saving |
-| Saved order | 9:42 | Simplified preview and mock document actions |
+Proposed mobile navigation: Home, Customers, Products, More. Desktop uses a sidebar and wider working areas with persistent summaries. “Conversational” means helpful step prompts, not mandatory chat bubbles.
 
-Recorded example journey: Home → Order → Harbor Market → items → review → saved order.
-Sample branding Northside Supply and user Alex are placeholders.
-Sample totals: coffee 2 x USD 12 + water 3 x USD 8 = USD 48.
-Price editing and save/print/email/share in the prototype do not implement real transactions.
+Northside Supply, Alex and Harbor Market are samples. Coffee 2 × $12 + water 3 × $8 = $48. Prototype price editing does not calculate totals; print/email/share actions are mocks.
 
-Unfinished print frames: order 11:70, invoice 11:71, payment receipt 11:72, credit note 11:73. Do not treat them as completed templates.
+## Print reference
 
-## Document visual reference
+The archived photograph shows a detailed BCS invoice with DISNA as customer. Use its structure for BOTH order and invoice output, as specified in [PRINT_PREVIEW_SPEC.md](PRINT_PREVIEW_SPEC.md) and the authoritative web specification.
 
-The original paper form has:
-1. Centered business name/contact details; support an uploaded logo.
-2. Bordered document number/date/customer name/address rows.
-3. Purpose checkboxes, including goods/deposit/rent/other where applicable.
-4. Payment-method block beside amount due / this payment / balance due.
-5. Sold-by and terms row.
-6. Bordered Qty / Description / Price / Amount item grid.
-7. Total at the bottom, with comments and signature/date as needed.
+The simplified Figma saved-order preview is not the final print target. Print frames 11:70, 11:71, 11:72 and 11:73 remain unfinished. The old blank-pad description is superseded for order/invoice layout.
 
-Generate distinct ORDER, INVOICE, CREDIT NOTE and PAYMENT RECEIPT documents. Orders must not imply payment received. Credits identify their original invoice and balance effect. Payment receipts identify method and allocations. Keep print black-and-white, readable and consistent with the generated PDF preview.
-
-The original paper reference is described here but its image is NOT archived in GitHub.
-
-## Asset backup manifest
-
-| Asset | Present in GitHub? | Next action |
-| --- | --- | --- |
-| Written UI tokens and screen/node inventory | Yes, this document and handoff | Maintain with implementation |
-| Paper-form reference image | No | Owner reattaches original for archival |
-| Figma screen PNG/PDF exports | No | Owner exports available frames and uploads |
-| Editable Figma .fig copy | Yes | Original preserved in design/source; reimport test pending |
-| Internal canvas data | Preserved in original .fig | Not decoded or independently validated; reimport test pending |
-
-Suggested repository destinations after files are supplied:
-- docs/design/reference/paper-form.png
-- docs/design/screens/ (numbered screen images or one PDF)
-- docs/design/source/ (editable export)
-
-The source backup and embedded preview now exist as linked above; reference/paper-form.png and screens/ remain proposed destinations. Do not invent or recreate missing images and call them original exports. A PNG/PDF preserves appearance; it does not preserve editable components or prototype wiring.
-
-## Handoff procedure
-1. New chat reads PROJECT_HANDOFF.md, PROGRESS.md, SETUP_GUIDE.md and this file.
-2. Check its GitHub, Supabase and Figma tool access.
-3. Use this recorded Supabase checkpoint as evidence of this session, not a guarantee of later state.
-4. If Figma remains limited, use uploaded exports and the written reference to start implementation.
-5. Record later checks and changes in PROGRESS.md.
-
-No paid upgrade is authorized or required simply to preserve the text reference. The original design-file export is now archived. The paper photograph and full-resolution screen exports remain outstanding.
+Live Figma tool access was limited in the prior session; implementation can use these archived assets without claiming the unfinished frames are complete.
