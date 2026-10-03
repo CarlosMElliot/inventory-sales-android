@@ -4,7 +4,7 @@ Updated 2026-10-03.
 
 ## Authoritative instructions
 
-Read [WEB_APP_SPEC.md](WEB_APP_SPEC.md) first. It replaces the Android-only handoff. The owner has selected a responsive web application for now; native Android is deferred. The repository name does not override this direction.
+Start at [the root README](../README.md). Assistants and developers read [AGENTS.md](../AGENTS.md), then [PROGRESS.md](PROGRESS.md), [WEB_APP_SPEC.md](WEB_APP_SPEC.md) and [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md). It replaces the Android-only handoff. The owner has selected a responsive web application for now; native Android is deferred. The repository name does not override this direction.
 
 The complete specification includes original Figma links, archived image references, 29 screen workflows, inventory/financial invariants, logical architecture, offline and subscription requirements, a decision register and 34 acceptance scenarios.
 
@@ -28,3 +28,7 @@ Preserve the full required feature set. Offline was not silently removed. Resolv
 ## Historical record
 
 The previous handoff is preserved in [history/ANDROID_PROJECT_HANDOFF_2026-09-27.md](history/ANDROID_PROJECT_HANDOFF_2026-09-27.md) and Git history for research. Its Android-only direction, missing-asset notes and old continuation instructions are superseded. Historical relative links may refer to its original docs directory.
+
+## Copy into a new chat
+
+Continue the web-first project at https://github.com/CarlosMElliot/inventory-sales-android. Read AGENTS.md and docs/PROGRESS.md, then docs/WEB_APP_SPEC.md and docs/IMPLEMENTATION_PLAN.md. Inspect available source and connections, follow the first unfinished milestone, verify actual behavior and record the exact next action. Use the archived Figma/screens/print reference. Do not assume prior chat attachments or current service access transfer automatically.
