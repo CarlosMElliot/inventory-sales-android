@@ -34,3 +34,9 @@ Service links do not implement a client, schema, authentication or deployment. A
 For each later setup step, append date, goal, affected service, actions, non-secret configuration/version, actual errors, resolution, verification and commit reference. Distinguish authorization from installation, connectivity from implementation, and mockups from running software.
 
 Never store passwords, access tokens or privileged keys in screenshots or documents in this public repository.
+
+## Creator login and admin setup checkpoint — 2026-10-03
+
+Read [ADMIN_ACCESS.md](ADMIN_ACCESS.md) for the controlled first-admin bootstrap and user-creation flow. The application includes an owner dashboard; the owner should not need to operate backend tables to create routine users.
+
+A current read-only check found Supabase project xrtoinoanxbpnuurhdtq ACTIVE_HEALTHY and public tables empty. Auth users/configuration were not inspected and no account was created. The repository still contains no app/auth source. Working credentials require authentication implementation and the owner-specified login email; never publish a password in setup research.
