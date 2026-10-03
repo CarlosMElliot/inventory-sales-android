@@ -57,3 +57,9 @@ The archived photograph shows a detailed BCS invoice with DISNA as customer. Use
 The simplified Figma saved-order preview is not the final print target. Print frames 11:70, 11:71, 11:72 and 11:73 remain unfinished. The old blank-pad description is superseded for order/invoice layout.
 
 Live Figma tool access was limited in the prior session; implementation can use these archived assets without claiming the unfinished frames are complete.
+
+## Required creator admin screens
+
+The full product also requires S30 creator login/recovery, S31 admin dashboard, S32 user directory/detail, S33 create business/user and S34 audit log, alongside S28 business/subscription management. These screens are specified in WEB_APP_SPEC.md and [ADMIN_ACCESS.md](ADMIN_ACCESS.md); they are not present in the archived five-screen Figma journey.
+
+Use the same teal/white typography direction with a distinct Admin label and navigation: Overview, Businesses, Users, Subscriptions, Audit and Account. Dashboard cards show actionable counts; business/user forms and statuses must work on mobile and desktop. Do not use a login mockup or a displayed sample password as evidence of working credentials.
