@@ -16,14 +16,14 @@ If backend tools are unavailable, record the limit and continue the reversible s
 | --- | --- | --- |
 | M0 — Environment and stack | Inspect source, tools and service access; select D02; define actual setup commands and planned source layout | Non-secret environment/stack record, reproducible setup instructions, exact next task |
 | M1 — Responsive sample order journey | Home → choose/create customer → build → price edit → review → saved preview; use Figma styles and synthetic data | Runs at mobile and desktop widths; $48 sample calculation, working price override, stock warning and preserved draft; mocks labeled; relevant A03/A04/A09/A31/A32 checks |
-| M2 — Secure data foundation | Auth, tenancy, admin provisioning foundation, customers/products/categories/photos/import; inventory ledger/adjustments | Migrations and ownership tests; A01/A02, applicable A03/A07/A20/A24; private files protected; recorded setup steps |
+| M2 — Secure data foundation | Auth, tenancy, creator login/dashboard, business/user directory and creation, trusted first-admin bootstrap, audit foundation, customers/products/categories/photos/import; inventory ledger/adjustments | Migrations, actual creator login/provisioning and ownership tests; A01/A02/A35–A42, applicable A03/A07/A20/A24; private files protected; recorded setup steps |
 | M3 — Transaction engine | Orders/invoices, numbering, conversion, credits/payments, allocations, signatures, corrections/reversals; resolve D06–D11/D17–D19 as relevant | A04–A18/A23/A28/A30; atomic posting/retry tests, money and stock reconciliation; correct linked records |
 | M4 — Documents and recovery | Reference-matching PDFs, browser print, email/share and backup/restore; resolve D12–D14 | A21/A22/A25/A26/A34; actual supported printer/browser test; real PDF attachment and delivery error behavior |
 | M5 — History and comparisons | Global/customer filters, full history, daily sales/orders/payments and stock comparison; resolve D15/D18 | A11/A19/A20/A33 with seeded date boundaries and report reconciliation; PDF report checks |
-| M6 — Offline and subscriptions | Approved offline matrix, queue/conflicts, subscription lifecycle and creator admin completion; resolve D03–D05 | A01/A02/A06/A27–A30; reconnect replay without duplicates; server restrictions and honest offline-expiry behavior |
-| M7 — Release validation | Supported environments, accessibility, capacity, recovery, migration rehearsal; resolve remaining launch decisions | Applicable A01–A34 passed with evidence; unresolved items explicitly approved/deferred; owner reviews concrete release candidate before deployment |
+| M6 — Offline and subscriptions | Approved offline matrix, queue/conflicts, subscription lifecycle and advanced subscription operations; resolve D03–D05 | A01/A02/A06/A27–A30; reconnect replay without duplicates; server restrictions and honest offline-expiry behavior |
+| M7 — Release validation | Supported environments, accessibility, capacity, recovery, migration rehearsal; resolve remaining launch decisions | Applicable A01–A42 passed with evidence; unresolved items explicitly approved/deferred; owner reviews concrete release candidate before deployment |
 
-M2 needs early authentication/provisioning; M6 completes lifecycle behavior rather than postponing security. Offline IDs, document numbering and conflict strategy must influence M2/M3 design before M6 implementation.
+M2 must deliver the creator admin dashboard and working user creation, not just an invisible provisioning endpoint. See ADMIN_ACCESS.md. M6 extends subscription/offline lifecycle behavior rather than postponing admin login, account creation or security. Offline IDs, document numbering and conflict strategy must influence M2/M3 design before M6 implementation.
 
 ## Scope mapping
 
@@ -40,7 +40,8 @@ M2 needs early authentication/provisioning; M6 completes lifecycle behavior rath
 | Branding/account | S25 | M2/M4/M6 |
 | Backups | S26 | M4 |
 | Offline/sync | S27 | M6, designed earlier |
-| Creator admin/subscription state | S28–S29 | M2/M6 |
+| Creator business/subscription management | S28–S29 | M2/M6 |
+| Creator login, dashboard, users, create-user form and audit | S30–S34 | M2 |
 
 ## How to execute a task
 
