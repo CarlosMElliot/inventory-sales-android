@@ -1,5 +1,7 @@
 # Inventory & Sales — Start Here
 
+> **First implementation available for review:** [PR #2](https://github.com/CarlosMElliot/inventory-sales-android/pull/2) contains the runnable web foundation, login/admin UI, protected account API and tests on `feat/web-foundation-admin`. Read [that branch’s current progress](https://github.com/CarlosMElliot/inventory-sales-android/blob/feat/web-foundation-admin/docs/PROGRESS.md) and [run/setup guide](https://github.com/CarlosMElliot/inventory-sales-android/blob/feat/web-foundation-admin/docs/BUILD_SETUP.md) before starting work. It is not yet merged or deployed; the implementation and remaining activation steps are described below.
+
 A responsive web application for U.S. small businesses: customers, products, inventory, orders, invoices, credits, payment records, documents and daily comparison reports.
 
 **Platform: web-first. Native Android is deferred. One subscription covers one business and one business user.** The repository name is historical.

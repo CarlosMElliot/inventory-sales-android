@@ -1,5 +1,7 @@
 # Current implementation progress
 
+> Implementation review: [PR #2](https://github.com/CarlosMElliot/inventory-sales-android/pull/2). This branch contains the code described below; it has not been deployed.
+
 Updated 2026-10-03. Branch: feat/web-foundation-admin. Product authority: WEB_APP_SPEC.md.
 
 ## Built in this first implementation
