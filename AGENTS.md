@@ -58,3 +58,7 @@ Preserve the distinction between Confirmed, Required safeguard, Proposed and Dec
 ## If access is unavailable
 
 Describe the specific unavailable capability. Use repository archives for visual references when live Figma is unavailable. Continue local/sample-data tasks that do not need the blocked service. Do not manufacture inspection results, claim a live test or repeatedly ask the owner to reconstruct archived material.
+
+## Creator administration is required
+
+Read docs/ADMIN_ACCESS.md for the creator dashboard, login/bootstrap and account lifecycle. M2 must implement admin login, dashboard and business-user creation; do not postpone them to M6. Preserve the one-business-user seat while keeping the creator administrator separate. Never invent working credentials or commit passwords. Obtain the owner's intended admin email rather than inferring identity. Verify actual authentication and privileged access before claiming login is ready.
