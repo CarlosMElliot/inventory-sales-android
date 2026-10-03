@@ -1,6 +1,6 @@
 # Order and invoice print preview
 
-Updated 2026-09-27 after the newly supplied photograph could be opened.
+Updated 2026-10-03 for web-first delivery. [WEB_APP_SPEC.md](WEB_APP_SPEC.md) is authoritative for product behavior. The paper reference was inspected in the September checkpoint.
 
 ## Authoritative reference
 
@@ -26,7 +26,7 @@ Required item data already planned: quantity, product SKU/name, unit price and l
 
 If Sold To and Ship To are identical, populate both consistently. Packing reference and ship date should display only when known or be clearly left blank. Distinguish product-line count, units and boxes; never label a sum of units as boxes without a defined conversion.
 
-Use correct app calculations and clear labels for subtotal, discounts, tax, total, credits, payments and balance. The photograph's wording does not override accounting rules in the handoff.
+Use correct app calculations and clear labels for subtotal, discounts, tax, total, credits, payments and balance. The photograph's wording does not override accounting rules in WEB_APP_SPEC.md.
 
 ## Orders versus invoices
 
@@ -47,3 +47,13 @@ Use the same document content/layout for preview and generated PDF. Support page
 ## Verification and current status
 
 Workspace access was restored. The newly supplied photograph was visually inspected and preserved unchanged with SHA-256 metadata in the repository archive. No new Figma design, PDF renderer or app code was created in this documentation update.
+
+## Web delivery requirements
+
+The application is responsive web-first. Preview, PDF download, email attachment and browser printing use the same renderer and document version. Browser Print opens the browser/OS print workflow; do not promise silent or universal Bluetooth printing. Test the selected printer, browser and paper combination.
+
+Email must include a real PDF attachment through the selected delivery approach; text-only mailto is insufficient. File sharing may use supported browser/device sharing, with download/manual attachment fallback. Test Gmail/WhatsApp targets where supported.
+
+An order remains an ORDER; an invoice remains an INVOICE. Credits and payment receipts are separate documents with their own financial meaning. Signing does not record payment. Failed PDF/email generation must never repost a transaction.
+
+Preserve issued document snapshots. If a later balance view reflects subsequent payments, clearly label its as-of date/version. See the authoritative specification for acceptance criteria and unresolved paper-size/data-mapping decisions.
