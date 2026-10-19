@@ -4,6 +4,15 @@
 
 Updated 2026-10-19. Branch: feat/web-foundation-admin. Product authority: WEB_APP_SPEC.md.
 
+## Creator provisioned — 2026-10-19
+
+- Owner completed private password entry and Auth identity creation in the dashboard.
+- Verified the matching identity was newly created and email-confirmed; confirmed zero preexisting creator administrators.
+- Invoked the existing bootstrap_creator function under service_role for that exact identity. No Auth-system records or passwords were edited directly.
+- Verified the creator profile and a single creator_bootstrapped audit event. This is provisioning evidence, not a successful application sign-in.
+- Next: select local versus hosted runtime, configure its private server credential and matching origin, then verify creator sign-in. For hosted use, replace the development Site URL and add the exact hosted password redirect before requesting recovery email. Custom SMTP/business-user activation remains pending.
+- Do not rerun the account-creation script or bootstrap after this checkpoint.
+
 ## Auth dashboard configuration — 2026-10-19
 
 - Saved public signup disabled; email confirmation remains enabled and anonymous sign-in remains disabled.
@@ -53,10 +62,10 @@ M0 stack/tool inspection completed; hosting is unresolved. M1 sample order slice
 
 ## Exact next action
 
-Configure private server credentials and Auth redirects/sender/signup settings, then run the trusted creator bootstrap with the previously supplied private email. The Supabase connector cannot perform these Auth settings/admin operations; use an authorized dashboard/private server workflow. Verify real password setup, sign-in and business provisioning before claiming login is ready. Hosting remains unresolved.
+Creator identity and administrator role are provisioned. Select local or hosted application runtime, configure the server-only credential and matching origin, then test actual creator sign-in. Hosted deployment additionally needs hosted Auth URLs. Configure custom SMTP before business-user activation testing. Never publish keys or passwords.
 
 ## Remaining limits and release gates
 
-The live account migration is verified. No hosted URL, configured sender, real creator identity, real sign-in or invitation delivery is claimed. No production key is available in this workspace. MFA/recovery and hosting policy remain unresolved. The rare Auth-created/database-update-failed path requires trusted operator reconciliation, documented in BUILD_SETUP.md. The initial admin lists cap at 200 accounts/50 events and need pagination before scale. Full subscription dates/billing actions, customer/product CRUD, financial transactions, reference-matching PDFs, backups, reports and offline sync remain to build.
+The live account migration is verified. Creator identity and role exist. No hosted URL, custom sender, actual application sign-in or invitation delivery is claimed. No production key is available in this workspace. MFA/recovery and hosting policy remain unresolved. The rare Auth-created/database-update-failed path requires trusted operator reconciliation, documented in BUILD_SETUP.md. The initial admin lists cap at 200 accounts/50 events and need pagination before scale. Full subscription dates/billing actions, customer/product CRUD, financial transactions, reference-matching PDFs, backups, reports and offline sync remain to build.
 
 All confirmed scope remains in WEB_APP_SPEC.md. Preview screenshots and locally passing tests do not establish production readiness.
