@@ -1,6 +1,6 @@
 # Inventory & Sales — Authoritative Web-App Specification
 
-Version 1.1 · 2026-10-03 · Owner: Carlos Mercado · Status: approved web-first direction; detailed rules below include proposals and unresolved decisions.
+Version 1.2 · 2026-10-03 · Owner: Carlos Mercado · Status: approved web-first direction; detailed rules below include proposals and unresolved decisions.
 
 ## 1. Authority, purpose and scope
 
@@ -19,7 +19,7 @@ Do not trade away required features simply to make navigation look simple. Use p
 
 Confirmed scope includes offline operation and synchronization from the previous plan. The web pivot does not itself cancel that requirement. An online foundation can be built first; full-release acceptance still requires offline support or an explicit owner-approved deferral.
 
-Supabase free tier is the starting budget constraint. No paid upgrade is authorized. Framework, hosting provider, email provider and billing provider are not selected here. Commercial price suggestions in old notes are not approved prices.
+Supabase free tier is the starting budget constraint. No paid upgrade is authorized. The first implementation selects React/TypeScript/Vite with an Express account API and Supabase; hosting, email delivery configuration and billing provider remain unresolved. Commercial price suggestions in old notes are not approved prices.
 
 ## 2. Project references and evidence
 
@@ -63,7 +63,7 @@ The creator can create a business and its login user, invite/activate the user, 
 
 Use email and a user-chosen password through a secure setup flow. Never store a default/shared admin password in source, documentation, fixtures, screenshots or logs. The dashboard cannot reveal existing passwords. Creation success must distinguish an account record, invitation delivery and completed activation; none proves that the user has signed in.
 
-See [admin access and bootstrap guide](ADMIN_ACCESS.md). It describes how to establish the first creator account after authentication implementation, without pretending credentials exist today. The creator email is not yet supplied; do not infer it from GitHub or other connected accounts.
+See [admin access and bootstrap guide](ADMIN_ACCESS.md). It describes how to establish the first creator account after authentication implementation, without pretending credentials exist today. The creator email was supplied privately in the owner conversation. Do not publish it or infer identity from connected accounts; supply it through private bootstrap configuration.
 
 ## 4. Navigation and responsive design
 
@@ -514,7 +514,7 @@ This is a logical model, not an implemented schema.
 
 Every business-owned record has stable identity and ownership. Foreign-key relationships must prevent cross-business linking. Important fields include created/updated timestamps, effective business date, revision, actor and source-operation identifier.
 
-Proposed boundaries: responsive web frontend; Supabase authentication, database and private file storage; trusted server operations for posting, numbering, privileged admin work and external service integration. Client framework and hosting remain choices.
+Proposed boundaries: responsive web frontend; Supabase authentication, database and private file storage; trusted server operations for posting, numbering, privileged admin work and external service integration. Client stack is now React/TypeScript/Vite with an Express server; hosting remains a choice.
 
 Row-level security is required for exposed business tables, with policies enforcing business membership on reads and writes. Private files must have equivalent authorization. Do not use editable user metadata as authority. Privileged keys stay server-side; customer-controlled backup imports cannot grant admin rights or alter subscription entitlements.
 
@@ -537,7 +537,7 @@ Reliability requirements: never lose a confirmed transaction; recover a pending-
 | ID | Decision | Proposed direction / unresolved point | Gate |
 | --- | --- | --- | --- |
 | D01 | Product name | WorksPlace is team name; final public name needed | Branding/release |
-| D02 | Web stack and hosting | Select maintained responsive stack after environment inspection; free services first | Foundation |
+| D02 | Web stack and hosting | Stack selected 2026-10-03: React/TypeScript/Vite + Express + Supabase; small responsive client, trusted account server, pinned lockfile. Hosting remains pending. See BUILD_SETUP.md. | Foundation / hosting before release |
 | D03 | Offline release sequencing | Remains in scope; approve feature matrix and any explicit deferral | Release planning |
 | D04 | Offline license/device policy | Define grace duration, allowed devices and concurrency; no instant offline revocation claim | Offline/auth |
 | D05 | Subscription commercial rules | Price/trial/grace/renewal/suspension/retention; prior price suggestions not approved | Billing/release |
@@ -555,7 +555,7 @@ Reliability requirements: never lose a confirmed transaction; recover a pending-
 | D17 | Signature policy | Required vs optional by type, accessible alternative, document revision rules | Signatures |
 | D18 | Business timezone/currency | USD first; select per-business timezone/default and timezone-change rules | Onboarding/reports |
 | D19 | Payment purpose and terms | Clarify Charge vs On account; standalone deposits/rent need ledger rules | Payment completion |
-| D20 | Creator admin identity and recovery | Owner supplies login email; confirm MFA/recovery policy and trusted initial-admin bootstrap; no default credentials | Admin authentication before use |
+| D20 | Creator admin identity and recovery | Owner supplied login email privately; confirm MFA/recovery policy and trusted initial-admin bootstrap; no default credentials | Admin authentication before use |
 
 These decisions do not block reversible sample-data UI work. They do block declaring their dependent production features complete.
 

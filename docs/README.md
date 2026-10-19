@@ -7,6 +7,8 @@ Start at [the repository README](../README.md). AI assistants and developers sho
 | Document | Question it answers |
 | --- | --- |
 | [WEB_APP_SPEC.md](WEB_APP_SPEC.md) | What must the product do? |
+| [BUILD_SETUP.md](BUILD_SETUP.md) | How do I run the app and configure real authentication? |
+| [implementation/README.md](implementation/README.md) | What does the first running implementation look like? |
 | [PROGRESS.md](PROGRESS.md) | What is actually completed and what comes next? |
 | [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md) | In what order do we build and verify it? |
 | [ADMIN_ACCESS.md](ADMIN_ACCESS.md) | How does the creator log in and create/manage business users? |

@@ -39,4 +39,8 @@ Never store passwords, access tokens or privileged keys in screenshots or docume
 
 Read [ADMIN_ACCESS.md](ADMIN_ACCESS.md) for the controlled first-admin bootstrap and user-creation flow. The application includes an owner dashboard; the owner should not need to operate backend tables to create routine users.
 
-A current read-only check found Supabase project xrtoinoanxbpnuurhdtq ACTIVE_HEALTHY and public tables empty. Auth users/configuration were not inspected and no account was created. The repository still contains no app/auth source. Working credentials require authentication implementation and the owner-specified login email; never publish a password in setup research.
+At the earlier documentation-only checkpoint, the project was healthy with no public tables and no app source. The later implementation checkpoint below supersedes that source status: app/account code is now prepared, zero Auth users were verified read-only, and live setup is still pending. The creator email was supplied privately; never publish a password in setup research.
+
+## First implementation branch — 2026-10-03
+
+React/TypeScript/Vite and Express selected; account API/migration/bootstrap implemented and locally tested. See BUILD_SETUP.md for commands and PROGRESS.md for evidence. Older statements below/above about absent source describe prior checkpoints. The creator email has been supplied privately. The live database was inspected only; no accounts, schema, email or deployment were changed.

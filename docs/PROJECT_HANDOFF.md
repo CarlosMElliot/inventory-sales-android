@@ -2,6 +2,10 @@
 
 Updated 2026-10-03.
 
+## First implementation checkpoint
+
+This branch now includes runnable web UI, protected account API, a locally tested migration and bootstrap script. Read PROGRESS.md and BUILD_SETUP.md before continuing. Real login still needs private configuration and provider verification. The intended creator email was supplied privately; do not ask for a public password or infer it from other accounts.
+
 ## Authoritative instructions
 
 Start at [the root README](../README.md). Assistants and developers read [AGENTS.md](../AGENTS.md), then [PROGRESS.md](PROGRESS.md), [WEB_APP_SPEC.md](WEB_APP_SPEC.md) and [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md). It replaces the Android-only handoff. The owner has selected a responsive web application for now; native Android is deferred. The repository name does not override this direction.
@@ -35,4 +39,4 @@ Continue the web-first project at https://github.com/CarlosMElliot/inventory-sal
 
 ## Creator dashboard and login
 
-The owner reaffirmed that creator admin login, an admin dashboard and business-user creation are mandatory. Read [ADMIN_ACCESS.md](ADMIN_ACCESS.md), screens S28–S34 and acceptance A35–A42. Implement these in M2. Do not claim existing credentials: auth/app code is not present and the intended creator login email is still needed. Account setup uses a trusted bootstrap and private password-setup flow; never place credentials in this repository.
+The owner reaffirmed that creator admin login, an admin dashboard and business-user creation are mandatory. Read [ADMIN_ACCESS.md](ADMIN_ACCESS.md), screens S28–S34 and acceptance A35–A42. Implement these in M2. Do not claim existing credentials: auth/app code is prepared but live configuration and actual creator setup remain pending. Account setup uses a trusted bootstrap and private password-setup flow; never place credentials in this repository.
