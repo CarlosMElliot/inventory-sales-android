@@ -4,13 +4,17 @@
 
 Updated 2026-10-19. Branch: feat/web-foundation-admin. Product authority: WEB_APP_SPEC.md.
 
-## Live activation attempt — 2026-10-19
+## Live database activation — 2026-10-19
 
-- Confirmed working Supabase connector access and verified the documented project `xrtoinoanxbpnuurhdtq` (`inventory-sales-android`) is INACTIVE.
-- Attempted to resume that existing project. Supabase refused because the owner's account has reached the two-active-free-project limit across organizations.
-- No migration, account creation, email configuration, email delivery or deployment occurred. The database remains unavailable for live verification.
-- Exact next action: the owner selects an unused active project to pause (or independently chooses a paid upgrade), then resume this project and continue BUILD_SETUP.md. Do not pause or delete an unrelated project without the owner's selection.
-- Prior local verification below is historical; tests were not rerun for this documentation-only checkpoint.
+- Owner resumed the documented Supabase project; confirmed ACTIVE_HEALTHY.
+- Initial migration returned success during COMING_UP but disappeared when startup completed. Re-inspected the empty schema/history, then applied again after ACTIVE_HEALTHY. Final recorded version: `20261019062929_account_foundation`.
+- Renamed the unchanged migration file and updated its schema-test reference to match the actual remote version, preventing duplicate application under the original timestamp.
+- Verified five application tables, all with RLS enabled; anon has no SELECT and authenticated has no INSERT/UPDATE/DELETE grants.
+- Verified all four account RPCs are SECURITY INVOKER, denied to anon/authenticated and executable by service_role.
+- Security advisor: two informational RLS-without-policy findings on account_operations/admin_events. These are intentionally server-only tables with no browser grants; adding client policies would weaken the intended boundary. See https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy.
+- Final counts: zero Auth users, profiles and businesses. No account, password-setup email or application deployment created.
+- Current Supabase connector exposes database operations but no Auth-settings update, Auth-admin user creation or private server-key retrieval. Complete those through an authorized dashboard/private server setup; never fabricate Auth records directly in SQL.
+- Verification this session: live catalog/privilege/count queries, migration history and security advisor. Prior local build/18 tests/six browser checks below are historical and were not rerun; SQL contents are unchanged and only the test fixture path moved.
 
 ## Built in this first implementation
 
@@ -36,14 +40,14 @@ Updated 2026-10-19. Branch: feat/web-foundation-admin. Product authority: WEB_AP
 
 ## Milestone status
 
-M0 stack/tool inspection completed; hosting is unresolved. M1 sample order slice and responsive admin/login UI implemented, with business home/customer/product persistence still pending. M2 account API/schema/bootstrap implementation prepared and locally tested; live integration and broader CRUD remain pending. M3–M7 not completed.
+M0 stack/tool inspection completed; hosting is unresolved. M1 sample order slice and responsive admin/login UI implemented, with business home/customer/product persistence still pending. M2 account schema applied and live permissions checked; real Auth integration, private server configuration and broader CRUD remain pending. M3–M7 not completed.
 
 ## Exact next action
 
-Resolve the free-project activation limit described above, resume the documented project, then review this branch and configure a private target environment per BUILD_SETUP.md, apply the account migration through the reviewed deployment process, set server/publishable credentials and Auth sender/redirects, then execute first-admin bootstrap using the privately supplied owner email. Verify actual password setup/sign-in and business-user provisioning before calling credentials ready. No secret should be pasted into the public repository.
+Configure private server credentials and Auth redirects/sender/signup settings, then run the trusted creator bootstrap with the previously supplied private email. The Supabase connector cannot perform these Auth settings/admin operations; use an authorized dashboard/private server workflow. Verify real password setup, sign-in and business provisioning before claiming login is ready. Hosting remains unresolved.
 
 ## Remaining limits and release gates
 
-No hosted URL, live migration, configured sender, real creator identity, real sign-in or invitation delivery is claimed. No production key is available in this workspace. MFA/recovery and hosting policy remain unresolved. The rare Auth-created/database-update-failed path requires trusted operator reconciliation, documented in BUILD_SETUP.md. The initial admin lists cap at 200 accounts/50 events and need pagination before scale. Full subscription dates/billing actions, customer/product CRUD, financial transactions, reference-matching PDFs, backups, reports and offline sync remain to build.
+The live account migration is verified. No hosted URL, configured sender, real creator identity, real sign-in or invitation delivery is claimed. No production key is available in this workspace. MFA/recovery and hosting policy remain unresolved. The rare Auth-created/database-update-failed path requires trusted operator reconciliation, documented in BUILD_SETUP.md. The initial admin lists cap at 200 accounts/50 events and need pagination before scale. Full subscription dates/billing actions, customer/product CRUD, financial transactions, reference-matching PDFs, backups, reports and offline sync remain to build.
 
 All confirmed scope remains in WEB_APP_SPEC.md. Preview screenshots and locally passing tests do not establish production readiness.
