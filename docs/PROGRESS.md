@@ -2,7 +2,15 @@
 
 > Implementation review: [PR #2](https://github.com/CarlosMElliot/inventory-sales-android/pull/2). This branch contains the code described below; it has not been deployed.
 
-Updated 2026-10-03. Branch: feat/web-foundation-admin. Product authority: WEB_APP_SPEC.md.
+Updated 2026-10-19. Branch: feat/web-foundation-admin. Product authority: WEB_APP_SPEC.md.
+
+## Live activation attempt — 2026-10-19
+
+- Confirmed working Supabase connector access and verified the documented project `xrtoinoanxbpnuurhdtq` (`inventory-sales-android`) is INACTIVE.
+- Attempted to resume that existing project. Supabase refused because the owner's account has reached the two-active-free-project limit across organizations.
+- No migration, account creation, email configuration, email delivery or deployment occurred. The database remains unavailable for live verification.
+- Exact next action: the owner selects an unused active project to pause (or independently chooses a paid upgrade), then resume this project and continue BUILD_SETUP.md. Do not pause or delete an unrelated project without the owner's selection.
+- Prior local verification below is historical; tests were not rerun for this documentation-only checkpoint.
 
 ## Built in this first implementation
 
@@ -32,7 +40,7 @@ M0 stack/tool inspection completed; hosting is unresolved. M1 sample order slice
 
 ## Exact next action
 
-Review this branch, configure a private target environment per BUILD_SETUP.md, apply the account migration through the reviewed deployment process, set server/publishable credentials and Auth sender/redirects, then execute first-admin bootstrap using the privately supplied owner email. Verify actual password setup/sign-in and business-user provisioning before calling credentials ready. No secret should be pasted into the public repository.
+Resolve the free-project activation limit described above, resume the documented project, then review this branch and configure a private target environment per BUILD_SETUP.md, apply the account migration through the reviewed deployment process, set server/publishable credentials and Auth sender/redirects, then execute first-admin bootstrap using the privately supplied owner email. Verify actual password setup/sign-in and business-user provisioning before calling credentials ready. No secret should be pasted into the public repository.
 
 ## Remaining limits and release gates
 
