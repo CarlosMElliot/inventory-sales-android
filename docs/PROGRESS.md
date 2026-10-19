@@ -4,6 +4,15 @@
 
 Updated 2026-10-19. Branch: feat/web-foundation-admin. Product authority: WEB_APP_SPEC.md.
 
+## Auth dashboard configuration — 2026-10-19
+
+- Saved public signup disabled; email confirmation remains enabled and anonymous sign-in remains disabled.
+- Saved development Site URL `http://localhost:5173` and exact password-setup redirect `http://localhost:5173/auth/set-password`. These are local development settings, not a hosted deployment.
+- Dashboard shows default email templates and no custom SMTP configured. Email delivery is untested.
+- Opened the first creator identity form with the previously supplied email privately prefilled. Password entry/submission is handed to the owner; no identity creation or administrator role assignment is claimed at this checkpoint.
+- After owner creates the intended identity: inspect it through the trusted connector and invoke the restricted bootstrap function for that exact identity. Do not rerun the create-user bootstrap script against an existing identity.
+- Private Express server credential/configuration and a runnable app origin still remain before login can be tested.
+
 ## Live database activation — 2026-10-19
 
 - Owner resumed the documented Supabase project; confirmed ACTIVE_HEALTHY.
