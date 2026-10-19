@@ -2,6 +2,12 @@
 
 This branch adds a runnable React/TypeScript/Vite interface and an Express/Supabase account API. It is a foundation, not the completed inventory product. Source: src/, server/, supabase/migrations/, scripts/ and tests/.
 
+## Live database checkpoint — 2026-10-19
+
+Project `xrtoinoanxbpnuurhdtq` is ACTIVE_HEALTHY. The account foundation is applied as `20261019062929_account_foundation`; the repository filename and schema test now match that remote version. Do not reapply the former `20261003135303` migration. Always wait for ACTIVE_HEALTHY before database mutations following a resume: an earlier success during startup did not survive the final startup transition.
+
+Five tables and four restricted account RPCs were verified. The two informational advisor notices for account_operations/admin_events are expected because these tables deliberately have no client policies or client grants. Auth users remain zero. Private API credentials, Auth settings, first-admin provisioning and hosting still need setup.
+
 ## Preview without credentials
 
 Prerequisites: Node.js 24 (tested 24.19.0), npm and a modern browser. From repository root:
@@ -17,11 +23,11 @@ The login page explicitly reports missing configuration; there is no default use
 
 ## Configure real authentication privately
 
-1. Review the account migration and the target Supabase environment. Live access was inspected read-only; this branch has NOT applied its migration.
+1. Review the account migration and the target Supabase environment. The account foundation has already been applied to the documented project; inspect migration history before applying to any other target.
 2. Copy .env.example to .env and populate values privately. Never paste privileged keys into a public issue, commit or chat. Variables prefixed VITE_ are public browser configuration; the service-role key must never use that prefix.
 3. Set SUPABASE_URL and VITE_SUPABASE_URL to the same project URL. Set VITE_SUPABASE_PUBLISHABLE_KEY to its publishable key. Put the server-only credential in SUPABASE_SERVICE_ROLE_KEY. Set APP_ORIGIN to the actual allowed application origin.
 4. Apply the versioned migration using an authorized, reviewed deployment process. CLI syntax was checked with `npx supabase db push --help`; use `--dry-run` first for the selected linked environment. Do not apply to unrelated databases. Run the project's security advisors after live application.
-5. In Auth configuration, allow the exact application `/auth/set-password` redirect, configure the site URL and email sender, and disable public signup for the provisioned-account model. These settings have not been changed in this branch.
+5. In Auth configuration, allow the exact application `/auth/set-password` redirect, configure the site URL and email sender, and disable public signup for the provisioned-account model. These Auth settings have not been changed.
 6. In a second terminal run `npm run dev:api`. Vite forwards /api requests to the local API on port 3001. Check /api/health for configured state; that flag alone does not prove the schema or email delivery works.
 7. Set BOOTSTRAP_ADMIN_EMAIL privately to the creator email already supplied by the owner. The public repository deliberately does not store that address. Run `npm run bootstrap:admin -- --confirm` only after checking the target and email. It creates an Auth identity plus creator role; it sends no email and exposes no password.
 8. Use Forgot password from the app login with the intended email to request password setup. Verify actual delivery, set a private password, sign in and exercise administrator authorization. Sender restrictions may require configured SMTP or an authorized recipient. MFA/recovery policy remains a release decision.
