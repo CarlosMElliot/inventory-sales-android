@@ -13,7 +13,7 @@ beforeAll(async () => {
   );
   await db.exec(
     readFileSync(
-      "supabase/migrations/20261003135303_account_foundation.sql",
+      "supabase/migrations/20261019062929_account_foundation.sql",
       "utf8",
     ),
   );
